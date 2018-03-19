@@ -1,0 +1,162 @@
+<ion-header transparent>
+    <ion-navbar color="appheader" align-title="center">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+  
+    </button>
+        <ion-title>Quiz Questions<br/>
+  </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="presentPopover($event)">
+  <ion-icon name="more"></ion-icon>
+  </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">        
+    <ion-card>
+      <ion-item>
+          <ion-label stacked>Question</ion-label>
+             <ion-textarea autocomplete="on" spellcheck="true" type="text" formControlName="question"></ion-textarea>
+        </ion-item> 
+    </ion-card> <br> 
+  
+        <div formArrayName="options" class="frw">
+          <div *ngFor="let option of options.controls; let i = index">
+              <div [formGroupName]="i">                  
+              <ion-item-divider class="faid">Option {{ i + 1 }}</ion-item-divider>
+              <ion-item>
+                 <ion-input type="text"  maxlength="50" autocomplete="on" spellcheck="true" formControlName="options" ></ion-input>                                                                 
+                 <ion-toggle toogle-class="toggle-balanced" formControlName="isRightAnswer"> </ion-toggle>  
+
+             </ion-item>
+              </div>
+          </div>
+        </div>
+      <!--  <ion-toggle toogle-class="toggle-balanced"formControlName="isRightAnswer"> </ion-toggle> -->  
+  
+       <div float-right ion-button icon-left clear (click)="remove()">
+          <ion-icon name="close"></ion-icon>
+          Remove
+       </div>
+  
+  
+  <div ion-button float-left icon-left clear (click)="addOption()">
+    <ion-icon name="add"></ion-icon>
+    Add 
+  </div><br><br><br><br>
+  
+  <!--<div formArrayName="answers" class="frw">
+      <div *ngFor="let answer of answers.controls; let j = index">
+      <div [formGroupName]="j">
+          <ion-item-divider class="faid">Answer {{ j + 1 }}</ion-item-divider>
+          <ion-item>
+             <ion-input type="text"  maxlength="50" autocomplete="on" spellcheck="true" formControlName="answer"></ion-input>
+             <ion-toggle toogle-class="toggle-balanced" formControlName="isRightAnswer"> </ion-toggle>
+            </ion-item>
+         </div> 
+      </div>
+    </div>
+    
+    <div float-right ion-button icon-left clear (click)="removeAnswer()">
+      <ion-icon name="close"></ion-icon>
+      Remove
+    </div>
+    
+    
+    <div ion-button float-left icon-left clear (click)="addAnswer()">
+    <ion-icon name="add"></ion-icon>
+    Add 
+    </div>-->
+  
+  <ion-card>
+    <ion-item>
+        <ion-label stacked>Explanation</ion-label>
+           <ion-textarea autocomplete="on" spellcheck="true" type="text" formControlName="explanation"></ion-textarea>
+      </ion-item> 
+    </ion-card>
+  
+  </form>
+  <div align="center">
+    <button ion-button margin-top color="secondary" text-center
+    [disabled]="!form.valid" (click)="onSubmit()">Submit</button>  
+    </div>
+  
+  </ion-content>
+  
+  
+  <!--<div formArrayName="answers" class="frw">
+    <div *ngFor="let answer of answers.controls; let i = index">
+        <ion-item-divider class="faid">Answer {{ i + 1 }}</ion-item-divider>
+        <ion-item>
+           <ion-input type="text"  maxlength="50" autocomplete="on" spellcheck="true"  [formControlName]="i"></ion-input>
+           <ion-toggle toogle-class="toggle-balanced"> </ion-toggle>                   
+          </ion-item>
+    </div>
+  </div>
+  
+  <span float-right ion-button icon-left clear (click)="removeAnswer()">
+    <ion-icon name="close"></ion-icon>
+    Remove
+  </span>
+  
+  
+  <span ion-button float-left icon-left clear (click)="addAnswer()">
+  <ion-icon name="add"></ion-icon>
+  Add 
+  </span>-->
+  
+  
+  <!--<div align="center">
+    <ion-item  id="tquiz">
+        <ion-input autocomplete="on" spellcheck="true" type="text" maxlength="50" formControlName="answer" ></ion-input> 
+        <ion-toggle toogle-class="toggle-balanced"> </ion-toggle>          
+      </ion-item>
+    </div>
+      <br>
+  
+    <ion-card>
+      <ion-item>
+          <ion-label stacked>Explanation</ion-label>
+             <ion-textarea autocomplete="on" spellcheck="true" type="text" formControlName="explanation"></ion-textarea>
+        </ion-item> 
+    </ion-card>-->
+  
+  
+   <!--<div align="center">
+    <button id="qb" (click)='saveNew(newItem)'>
+        <ion-icon  name="add"></ion-icon>            
+      </button>         
+      <button id="qbt" (click)='cancelNew(newItem)'>
+          <ion-icon  name="remove"></ion-icon>                        
+      </button> 
+    </div>     
+        
+        <ion-list inset>  
+          <div align="center"> 
+            <ion-item  id="iquiz" *ngFor="let item of todos" >
+            <ion-textarea autocomplete="on" spellcheck="true" type="text"[(ngModel)]="x.answer"></ion-textarea> 
+          </ion-item>
+          </div>
+        </ion-list><br>
+       
+        <div align="center">
+        <ion-item  id="tquiz">
+            <ion-textarea autocomplete="on" spellcheck="true" type="text" ></ion-textarea> 
+            <ion-toggle toogle-class="toggle-balanced"> </ion-toggle>          
+          </ion-item>
+        </div>
+          <br>
+  
+        <ion-card>
+          <ion-item>
+              <ion-label stacked>Explanation</ion-label>
+                 <ion-textarea autocomplete="on" spellcheck="true" type="text" [(ngModel)]="explanation"></ion-textarea>
+            </ion-item> 
+        </ion-card>
+        <div align="middle">
+            <button  ion-button color="secondary"  (click)="save()">Add</button>
+            </div>-->            
+              
+  

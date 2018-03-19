@@ -1,0 +1,8 @@
+{
+  "name": "TechGurukool",
+  "app_id": "c26dcfbe",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
